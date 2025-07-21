@@ -1,0 +1,643 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Estilos del header */
+.main-header {
+    background-color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+    color: #e74c3c;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #333;
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Colores específicos para redes sociales */
+.social-icons a:nth-child(1):hover { /* TikTok */
+    color: #000000;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.social-icons a:nth-child(2):hover { /* YouTube */
+    color: #FF0000;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.social-icons a:nth-child(3):hover { /* Instagram */
+    color: #E1306C;
+    background-color: rgba(225, 48, 108, 0.1);
+}
+
+/* Estilos del slider */
+.slider-container {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    z-index: 10;
+}
+
+/* Sección principal */
+.content-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Navegación entre ciudades */
+.city-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.city-btn {
+    padding: 12px 30px;
+    background-color: #f8f9fa;
+    border: 2px solid #2c3e50;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.city-btn:hover {
+    background-color: #e9ecef;
+    transform: translateY(-3px);
+}
+
+.city-btn.active {
+    background-color: #2c3e50;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenido de ciudades */
+.city-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.city-content.active {
+    display: block;
+}
+
+/* NUEVO ESTILO PARA TÍTULOS DE REGIÓN */
+.destination-title {
+    font-size: 3rem;
+    color: #000;
+    font-weight: 800;
+    text-align: center;
+    margin: 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.destination-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #e74c3c, #3498db);
+    border-radius: 3px;
+}
+
+/* Galería de imágenes */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    position: relative;
+    width: 30%;
+    min-width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .image-caption {
+    padding-bottom: 25px;
+}
+
+/* Bloques de contenido */
+.content-block {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.content-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+}
+
+.content-block.historical {
+    background-color: #f8f9fa;
+    border-left: 5px solid #3498db;
+}
+
+.content-block.gastronomy {
+    background-color: #fff9f8;
+    border-left: 5px solid #e74c3c;
+}
+
+.content-block.discovery {
+    background-color: #f8faf9;
+    border-left: 5px solid #2ecc71;
+}
+
+.content-block.excursions {
+    background-color: #f8fafc;
+    border-left: 5px solid #9b59b6;
+}
+
+.content-block.personalized {
+    background-color: #fffaf1;
+    border-left: 5px solid #f39c12;
+}
+
+.content-title {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.content-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 70%;
+    width: 3px;
+    border-radius: 3px;
+}
+
+.historical .content-title::before {
+    background-color: #3498db;
+}
+
+.gastronomy .content-title::before {
+    background-color: #e74c3c;
+}
+
+.discovery .content-title::before {
+    background-color: #2ecc71;
+}
+
+.excursions .content-title::before {
+    background-color: #9b59b6;
+}
+
+.personalized .content-title::before {
+    background-color: #f39c12;
+}
+
+.content-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: left;
+}
+
+/* Sección de Experiencias */
+.experience-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.experience-title {
+    font-size: 2rem;
+    color: #e74c3c;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.experience-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+    width: 5px;
+    background-color: #e74c3c;
+    border-radius: 5px;
+}
+
+.experience-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+/* Formulario de reserva por ciudad */
+.booking-form {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 40px;
+    margin-top: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+}
+
+.booking-form h5 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.booking-form h5::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.booking-form .form-group {
+    margin-bottom: 25px;
+}
+
+.booking-form .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.booking-form .form-group input,
+.booking-form .form-group select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.booking-form .form-group input:focus,
+.booking-form .form-group select:focus {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+    outline: none;
+}
+
+.booking-form .submit-btn {
+    width: 100%;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.booking-form .submit-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+}
+
+.booking-form .submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Opciones adicionales en el formulario */
+.booking-form select option[value="excursion-dia"],
+.booking-form select option[value="tour-privado"] {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .gallery-item {
+        width: 45%;
+    }
+    
+    .booking-form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+    
+    .slider-container {
+        height: 50vh;
+    }
+    
+    .slide-text {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+    }
+    
+    .destination-title {
+        font-size: 2.2rem;
+    }
+    
+    .gallery-item {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .content-title,
+    .experience-title {
+        font-size: 1.6rem;
+    }
+    
+    .content-text,
+    .experience-description {
+        font-size: 1rem;
+    }
+    
+    .city-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+    .booking-form {
+        padding: 25px;
+    }
+    
+    .booking-form h5 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-text {
+        font-size: 2.2rem;
+    }
+    
+    .destination-title {
+        font-size: 1.8rem;
+    }
+    
+    .booking-form {
+        padding: 20px 15px;
+    }
+    
+    .content-block {
+        padding: 20px 15px;
+    }
+}
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+}
+/* Estilo para el nuevo campo DNI */
+.booking-form input[name="dni"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* Mejora visual para los selectores */
+.booking-form select {
+    cursor: pointer;
+}
+
+.booking-form option[value=""] {
+    color: #999;
+}
